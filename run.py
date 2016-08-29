@@ -1,4 +1,5 @@
 # Compile and run Scala and Java in one line
+# Used to run prograns in hackerrank
 
 
 import os
@@ -7,7 +8,9 @@ import sys
 # Usage run <jvm file> <input>
 
 jvm_file = sys.argv[1]
-input_file = sys.argv[2]
+input_file = None
+if len(sys.argv) > 2:
+    input_file = sys.argv[2]
 
 if "scala" in jvm_file:
     program = "scala"
