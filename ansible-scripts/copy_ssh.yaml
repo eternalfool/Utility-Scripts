@@ -1,17 +1,15 @@
 --- 
-- hosts: web
+- hosts: staging
   tasks:
     - name: "Copy keys to servers"
       copy: 
           group: sudo
           src: "{{ item.0 }}"
           dest: "{{ item.1 }}"
-          mode: 600
+          mode: 0600
           owner: shashwat
-          # src: /home/shashwat/.ssh/id_rsa
-          # dest: ~/.ssh/
       with_together:
-        - ['/home/shashwat/.ssh/id_rsa', '/home/shashwat/.ssh/id_rsa.pub']
-        - ['~/.ssh/', '~/.ssh/']
+        - ['/home/shashwat/.ssh/id_rsa']
+        - ['~/.ssh/']
 
 
